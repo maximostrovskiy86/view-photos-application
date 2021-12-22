@@ -1,2 +1,2 @@
 # viewp-hotos-application
-viewp-hotos-application
+viewp-photos-application
