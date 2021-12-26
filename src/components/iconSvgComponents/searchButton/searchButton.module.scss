@@ -1,0 +1,8 @@
+@import "../../../styles/utils/variables";
+
+.searchButton {
+    transition: fill 250ms $timing-function;
+    &:hover {
+        fill: $accent-color;
+    }
+}
