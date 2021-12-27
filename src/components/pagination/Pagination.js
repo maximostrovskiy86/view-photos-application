@@ -7,21 +7,21 @@ const Pagination = function ({ pageCount, handlePageClick }) {
   return (
     <ReactPaginate
       className={style.pagination}
-      nextLabel="next >"
+      nextLabel=">"
       onPageChange={handlePageClick}
       pageRangeDisplayed={3}
       marginPagesDisplayed={2}
       pageCount={pageCount}
-      previousLabel="< previous"
+      previousLabel="<"
       pageClassName="page-item"
-      pageLinkClassName="page-link"
+      pageLinkClassName={`${style.pageLink} page-link`}
       previousClassName="page-item"
-      previousLinkClassName="page-link"
+      previousLinkClassName={`${style.pageLink} page-link`}
       nextClassName="page-item"
-      nextLinkClassName="page-link"
+      nextLinkClassName={`${style.pageLink} page-link`}
       breakLabel="..."
       breakClassName="page-item"
-      breakLinkClassName="page-link"
+      breakLinkClassName={`${style.pageLink} page-link`}
       containerClassName="pagination"
       activeClassName="active"
       renderOnZeroPageCount={null}

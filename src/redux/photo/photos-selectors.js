@@ -1,9 +1,15 @@
 export const getAllGallery = (state) => state.photos;
 export const searchFilter = (state) => state.filter;
-// const getFilterAlbum = (state) => state.filterAlbum;
-// console.log(getFilterAlbum);
+const getLoading = (state) => state.loading;
 
 export const getGallery = (state) => {
+  if (state.filter && state.filterAlbum) {
+    return state.photos
+      .filter((el) => Number(el.albumId) === Number(state.filterAlbum))
+      .filter((item) =>
+        item.title.toLowerCase().includes(state.filter.toLowerCase())
+      );
+  }
   if (state.filter) {
     return state.photos.filter((item) =>
       item.title.includes(state.filter.toLowerCase())
@@ -16,31 +22,11 @@ export const getGallery = (state) => {
   }
   return state.photos;
 };
-// state.filterAlbum || state.filter
-
-// state.filter
-//   ?
-//   : state.filterAlbum
-//   ? state.photos.filter(
-//       (item) => Number(item.albumId) === Number(state.filterAlbum)
-//     )
-//   : state.photos;
-
-// export const getGallery = (state) => {
-//   const gallery = getAllGallery(state);
-//   const filter = searchFilter(state);
-//   const album = getFilterAlbum(state);
-//
-//   return gallery.filter((item) =>
-//     filter !== ""
-//       ? item.title.includes(filter.toLowerCase())
-//       : item.albumId === album
-//   );
-// };
 
 const selectors = {
   getGallery,
   getAllGallery,
+  getLoading,
 };
 
 export default selectors;

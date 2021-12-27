@@ -1,0 +1,14 @@
+.form {
+    text-align: center;
+    @media screen and (min-width: 576px) {
+        padding-bottom: 40px;
+    }
+}
+
+.select, .titleSidebar {
+    margin-bottom: 15px;
+}
+
+.select {
+    cursor: pointer;
+}

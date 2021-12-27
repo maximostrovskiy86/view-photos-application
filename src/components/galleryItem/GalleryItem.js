@@ -6,7 +6,9 @@ const GalleryItem = function ({ title, imageUrl, id, album }) {
   return (
     <li className={style.ImageGalleryItem}>
       <img className={style.ImageGalleryItemImage} src={imageUrl} alt={title} />
-      <p>{`${id}  ${title}  ${album}`}</p>
+      <p
+        className={style.description}
+      >{`№ ${id}  ${title}.  Album: ${album}`}</p>
     </li>
   );
 };

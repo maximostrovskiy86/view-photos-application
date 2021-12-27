@@ -23,8 +23,17 @@
     object-fit: cover;
     transition: transform 250ms $timing-function;
 }
+@media screen and (max-width: 768px) {
+    .ImageGalleryItem +.ImageGalleryItem {
+        margin-top: 15px;
+    }
+}
 
 .ImageGalleryItemImage:hover {
     transform: scale(1.03);
     cursor: pointer;
+}
+
+.description {
+    padding: 2px 5px;
 }
