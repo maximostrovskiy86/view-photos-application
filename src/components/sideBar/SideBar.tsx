@@ -5,12 +5,21 @@ import style from "./Sidebar.module.scss";
 import { getPhotosFromAlbum } from "../../redux/photo/photos-actions";
 import { photosSelectors } from "../../redux/photo";
 
+type Data = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+};
+
 const SideBar = function () {
-  const [numberAlbum, seNumberAlbum] = useState("");
+  const [numberAlbum, seNumberAlbum] = useState<string>("");
   const dispatch = useDispatch();
-  const allPhotos = useSelector(photosSelectors.getAllGallery);
+  const allPhotos: Data[] = useSelector(photosSelectors.getAllGallery);
 
   useEffect(() => {
+    // @ts-ignore
     dispatch(getPhotosFromAlbum(numberAlbum));
   }, [numberAlbum, seNumberAlbum]);
 
@@ -19,12 +28,13 @@ const SideBar = function () {
       .map((item) => item.albumId)
       .filter((el, index, array) => array.indexOf(el) === index);
 
-  const getCurrentAlbum = (e) => {
+  const getCurrentAlbum = (e: React.ChangeEvent<HTMLSelectElement>) => {
     seNumberAlbum(e.target.value);
   };
 
-  const onReset = (e) => {
+  const onReset = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // @ts-ignore
     dispatch(getPhotosFromAlbum(""));
     seNumberAlbum("");
   };

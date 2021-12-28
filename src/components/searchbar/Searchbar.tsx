@@ -6,13 +6,14 @@ import { getSearchPhotosSuccess } from "../../redux/photo/photos-actions";
 
 const Searchbar = function () {
   const dispatch = useDispatch();
-  const [val, setVal] = useState("");
+  const [val, setVal] = useState<string>("");
 
   useEffect(() => {
+    // @ts-ignore
     dispatch(getSearchPhotosSuccess(val));
-  }, [val]);
+  }, [val, dispatch]);
 
-  const handleInput = (e) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setVal(value.toLowerCase());
   };

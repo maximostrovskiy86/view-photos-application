@@ -1,8 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import style from "./GalleryItem.module.scss";
 
-const GalleryItem = function ({ title, imageUrl, id, album }) {
+interface Props {
+  title: string;
+  imageUrl: string;
+  id: number;
+  album: number;
+}
+
+const GalleryItem = function ({ title, imageUrl, id, album }: Props) {
   return (
     <li className={style.ImageGalleryItem}>
       <img className={style.ImageGalleryItemImage} src={imageUrl} alt={title} />
@@ -11,13 +17,6 @@ const GalleryItem = function ({ title, imageUrl, id, album }) {
       >{`№ ${id}  ${title}.  Album: ${album}`}</p>
     </li>
   );
-};
-
-GalleryItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  album: PropTypes.number.isRequired,
-  imageUrl: PropTypes.string.isRequired,
 };
 
 export default GalleryItem;

@@ -1,6 +1,5 @@
 export const getAllGallery = (state) => state.photos;
-export const searchFilter = (state) => state.filter;
-const getLoading = (state) => state.loading;
+export const getLoading = (state) => state.loading;
 
 export const getGallery = (state) => {
   if (state.filter && state.filterAlbum) {

@@ -24,8 +24,19 @@ module.exports = {
     semi: ["error", "always"],
     quotes: ["error", "double"],
     "comma-dangle": [2, "only-multiline"],
+    "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "off",
     indent: "off",
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".ts"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
   },
 };
